@@ -1,0 +1,288 @@
+requirement,status,evidence_or_limit
+ADMIN-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ADMIN-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ADMIN-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+ADMIN-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+ADMIN-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+ADMIN-006,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+AI-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+AI-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ANALYTICS-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ANALYTICS-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ANALYTICS-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ANALYTICS-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ANALYTICS-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+ARCH-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+BATCH-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+BATCH-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+BATCH-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+BATCH-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+BATCH-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+BATCH-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+BATCH-007,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+BATCH-008,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+BATCH-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+BATCH-010,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+COMPARE-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+COMPARE-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+COMPARE-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+COMPARE-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+COMPARE-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DASH-010,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DATA-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DB-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DB-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DB-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DB-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DB-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DB-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DB-007,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DB-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DEP-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DISC-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DISC-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DISC-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+DISC-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DISC-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+DISC-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FILE-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FILE-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FILE-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FILE-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FILE-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FILE-006,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FIND-001,Partial / acceptance not complete,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FIND-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FIND-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FIND-004,Partial / acceptance not complete,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FIND-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FIND-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FIND-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+FIND-008,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+FIND-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+INT-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+INT-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+INT-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+INT-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+INT-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MDB-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+MOD-001,Pending,Not implemented or not validated; see release checklist
+MOD-002,Pending,Not implemented or not validated; see release checklist
+MOD-003,Pending,Not implemented or not validated; see release checklist
+MOD-004,Pending,Not implemented or not validated; see release checklist
+MOD-005,Pending,Not implemented or not validated; see release checklist
+MOD-006,Pending,Not implemented or not validated; see release checklist
+MOD-007,Pending,Not implemented or not validated; see release checklist
+MOD-008,Pending,Not implemented or not validated; see release checklist
+MOD-009,Pending,Not implemented or not validated; see release checklist
+MOD-010,Pending,Not implemented or not validated; see release checklist
+MOD-011,Pending,Not implemented or not validated; see release checklist
+MOD-012,Pending,Not implemented or not validated; see release checklist
+MOD-013,Pending,Not implemented or not validated; see release checklist
+MOD-014,Pending,Not implemented or not validated; see release checklist
+MOD-015,Pending,Not implemented or not validated; see release checklist
+MOD-016,Pending,Not implemented or not validated; see release checklist
+MOD-017,Pending,Not implemented or not validated; see release checklist
+MOD-018,Pending,Not implemented or not validated; see release checklist
+NAV-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NAV-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NAV-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NAV-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NAV-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NET-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NET-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+NET-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NET-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NET-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NET-006,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+NFR-COMP-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-COMP-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-COMP-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-COMP-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-MAINT-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-MAINT-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-MAINT-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-MAINT-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-PERF-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-PERF-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-PERF-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-PERF-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-PERF-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-REL-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-REL-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-REL-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-REL-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+NFR-SEC-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+OBJ-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PARSE-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PLUGIN-001,Pending,Not implemented or not validated; see release checklist
+PLUGIN-002,Pending,Not implemented or not validated; see release checklist
+PLUGIN-003,Pending,Not implemented or not validated; see release checklist
+PLUGIN-004,Pending,Not implemented or not validated; see release checklist
+PLUGIN-005,Pending,Not implemented or not validated; see release checklist
+PLUGIN-006,Pending,Not implemented or not validated; see release checklist
+PROC-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROC-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+PROXY-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+REPORT-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+REPORT-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+REPORT-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+REPORT-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REPORT-010,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+REQ-FINAL-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+RESULT-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SCAN-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SCAN-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SCAN-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SCAN-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SCAN-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SCAN-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SCAN-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SCAN-008,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SCAN-009,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SESSION-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SESSION-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SESSION-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SESSION-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+SESSION-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+SESSION-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TAMP-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TASK-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+TASK-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+TASK-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TASK-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TASK-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+TASK-006,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+TASK-007,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+TEAM-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TEAM-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TEAM-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TEAM-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TEAM-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+TOR-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-001,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+UI-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+UI-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-004,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+UI-005,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-006,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+UI-007,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-008,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-009,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UI-010,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+UPDATE-001,Pending,Not implemented or not validated; see release checklist
+UPDATE-002,Pending,Not implemented or not validated; see release checklist
+UPDATE-003,Pending,Not implemented or not validated; see release checklist
+UPDATE-004,Pending,Not implemented or not validated; see release checklist
+UPDATE-005,Pending,Not implemented or not validated; see release checklist
+VAULT-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VAULT-002,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VAULT-003,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+VAULT-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VAULT-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+VULN-001,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VULN-002,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+VULN-003,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VULN-004,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim
+VULN-005,Implemented for documented beta workflow,"See compatibility.tsv, README and service/integration tests; original v5.5 equivalence unverified"
+VULN-006,Partial / acceptance not complete,See module limits in compatibility.tsv and production checklist; not a completed SRS acceptance claim

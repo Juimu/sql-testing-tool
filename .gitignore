@@ -3,3 +3,7 @@ target/
 *.db
 *.db-shm
 *.db-wal
+__pycache__/
+*.py[cod]
+.DS_Store
+hs_err_pid*.log

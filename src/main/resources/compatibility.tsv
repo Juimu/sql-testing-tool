@@ -1,33 +1,33 @@
 Capability	Requirements	Status	Implementation / limits
-Java / JavaFX / Maven	ARCH; NFR-MAINT	Implemented foundation	Java 21 + JavaFX 21; Java 25 pending
-Cross-platform installers	NFR-COMP	Pending Verification	Linux runtime only; native packaging pending
-Theme and navigation	UI; NAV	Implemented foundation	Dark/light, persistent theme; other layout state pending
-Dashboard	DASH	Implemented subset	Actual project/finding/audit totals and severity chart; task metrics pending
-Projects and scope	SCAN-002,003,009	Implemented foundation	Local URL boundary validation; no network assessment
-Single assessment	SCAN	Pending Verification	Scope validation only; assessment engine not implemented
-Batch assessment	BATCH	Pending Verification	Local batch scope validation and exact duplicates only; task queue pending
-Vulnerable URLs / findings	FIND	Implemented subset	Unverified manual entries and status; verification/history pending
-Column selection / DB metadata	DB	Pending Verification	Approved-credential / synthetic workflow planned
-Dump accumulation / evidence	RESULT	Pending Verification	Redacted manual evidence only; no dumping
-Dork scanner	DISC	Pending Verification	Owned-asset reviewed discovery planned; no search automation
-Admin finder	ADMIN	Pending Verification	Approved endpoint exposure diagnostics planned
-File read	FILE	Restricted to Lab — not implemented	Only harmless predetermined fixture workflow planned
-Tamper scripts	TAMP	Restricted to Lab — not implemented	Compatibility metadata and isolated lab fixtures planned
-HTTP / SOCKS5 proxy and failover	PROXY	Pending Verification	No routing changes or proxy execution
-Tor / live status / routing coverage	TOR	Pending Verification	No Tor lifecycle or route integration
-Process tree management	PROC	Pending Verification	No external processes launched
-Output state parser	PARSE	Pending Verification	No sqlmap integration
-Dependency and path validation cache	DEP	Pending Verification	Maven build only
-Session persistence	SESSION	Implemented subset	SQLite projects, findings, settings, audit; task recovery pending
-Reports	REPORT	Implemented subset	JSON and HTML; other formats/templates pending
-AI assistant	AI	Pending Verification	No external AI calls
-Task scheduler	TASK	Pending Verification	Not implemented
-Multi-DB intelligence	MDB	Pending Verification	SQLite used for local storage only
-Network diagnostics	NET	Pending Verification	No remote HTTP requests
-CVSS / CWE / OWASP	VULN	Pending Verification	Manual severity only
-Analytics and comparison	ANALYTICS; COMPARE	Pending Verification	Severity chart only; history pending
+Java / JavaFX / Maven	ARCH; NFR-MAINT	Improved; tested on Linux	Java release 21 built/tested with verified JDK 25; JavaFX 21.0.8
+Cross-platform installers	NFR-COMP	Partial; OS verification pending	Dependency ZIP and native app-image packaging; Linux self-test passed; CI matrix added
+Theme and navigation	UI; NAV	Improved subset	18 views, dark/light, persistent theme and selected project; finding search retained within session
+Dashboard	DASH	Improved subset	Actual projects/findings/audits/tasks/verified counts and severity chart; refresh button
+Projects and scope	SCAN-002,003,009	Improved	Exact scheme/host/port/path; enforced at enqueue and request
+Single assessment	SCAN	Safely Adapted	Scoped bounded HTTP diagnostics; optional supervised risk-1 sqlmap diagnostics
+Batch assessment	BATCH	Improved subset	100-URL queue, exact duplicate detection, priority/delay, one worker; queued pause/resume and cancellation
+Vulnerable URLs / findings	FIND	Improved subset	Manual and imported HTTP observations; reviewer decision, owner, CWE, assessed CVSS; status history
+Column selection / DB metadata	DB	Safely Adapted	Read-only local SQLite, select all/none, up to 20 redacted rows; remote DB drivers pending
+Dump accumulation / evidence	RESULT	Safely Adapted subset	Persistent task results and provenance-linked redacted sample groups append; per-group view/export/delete; no production-data dumping
+Dork scanner	DISC	Safely Adapted subset	Owned-site query generation and reviewed URL validation; no arbitrary result scanning
+Admin finder	ADMIN	Safely Adapted	Exact approved endpoint HTTP diagnostics; response status is not access-bypass proof
+File read	FILE	Restricted to Lab	Packaged harmless marker file; no server-side sensitive-file access
+Tamper scripts	TAMP	Restricted to Lab subset	Fixed local transformation fixture/identifier; no arbitrary scripts, WAF bypass or sandbox claims
+HTTP / SOCKS5 proxy and failover	PROXY	Implemented subset; live validation pending	Explicit route parser and proxy-aware requests; no credential auth or silent direct failover
+Tor / live status / routing coverage	TOR	Partial; external validation pending	Existing SOCKS5 endpoint check only; no lifecycle or exit-IP verification
+Process tree management	PROC	Improved subset	No shell interpolation; bounded capture, deadline, cancellation and owned-descendant termination; tested on Linux
+Output state parser	PARSE	Improved subset	Curated sqlmap candidate/DBMS parser; negative and incomplete outcomes distinguished
+Dependency and path validation cache	DEP	Partial	Python/sqlmap file path validation and pinned helper; no metadata cache
+Session persistence	SESSION	Improved subset	SQLite tasks/results/events; interrupted work requires manual retry; no automatic duplicate rerun
+Reports	REPORT	Improved subset	JSON/HTML/CSV/SARIF/PDF summary; no templates/branding/full-Unicode PDF
+AI assistant	AI	Implemented adapter; live service pending	Local deterministic advice; optional approved HTTPS AI drafts using vaulted key, verified-summary only; mock transport tested
+Task scheduler	TASK	Implemented subset	Persisted priority/due time, queued pause/resume, manual retry, cancellation; single worker
+Multi-DB intelligence	MDB	Partial	Six DBMS guidance profiles; SQLite inspection; sqlmap engine detection is not independent server verification
+Network diagnostics	NET	Implemented subset	Status/latency/response limits and HTTPS trust/hostname validation; no standalone DNS trace or verified exit IP
+CVSS / CWE / OWASP	VULN	Partial	CWE and manually assessed numeric CVSS; no vector calculator or complete OWASP mapping
+Analytics and comparison	ANALYTICS; COMPARE	Implemented subset	Task state totals, severity distribution, matching-target HTTP observation comparisons
 Plugin SDK and signing	PLUGIN	Pending Verification	No extension execution
-Credential vault	VAULT	Pending Verification	No secrets collected; local database is plaintext
-Team roles and audit	TEAM	Implemented subset	Local event audit only; no authentication or RBAC
-Integrations	INT	Pending Verification	No webhooks, issue tracker or CI exports
-Update management	UPDATE	Pending Verification	No updater
+Credential vault	VAULT	Implemented subset	AES-256-GCM/PBKDF2 encrypted separate vault; OS keychain and workspace encryption pending
+Team roles and audit	TEAM	Partial	Local transactional audit/event export; no authenticated team roles
+Integrations	INT	Partial	SARIF/JSON/CSV report exports and build CI; live issue tracker/webhooks pending
+Update management	UPDATE	Pending Verification	No updater, package signatures or rollback implementation

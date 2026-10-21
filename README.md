@@ -1,41 +1,53 @@
 # SQLNext — বাংলায় ব্যবহার নির্দেশিকা
 
-SQLNext হলো নিরাপত্তা পরীক্ষার প্রজেক্ট, অনুমোদিত ওয়েব ঠিকানা এবং পাওয়া সমস্যার তথ্য গুছিয়ে রাখার একটি ডেস্কটপ অ্যাপ। এর ইন্টারফেস JavaFX দিয়ে তৈরি এবং তথ্য SQLite ডাটাবেসে সংরক্ষিত থাকে।
+SQLNext একটি JavaFX ডেস্কটপ অ্যাপ: অনুমোদিত নিরাপত্তা পরীক্ষা চালানো, ফলাফল গুছিয়ে রাখা এবং রিপোর্ট তৈরি করার জন্য। তথ্য স্থানীয় SQLite ডাটাবেসে থাকে।
 
-**সংস্করণ ০.১.০ — প্রাথমিক কার্যকর সংস্করণ।** এটি আপনার দেওয়া SqliDumper Next পরিকল্পনার প্রথম বাস্তবায়ন। সব সুবিধা এখনো তৈরি হয়নি। **বর্তমানে অ্যাপ নিজে থেকে SQL Injection স্ক্যান করে না বা ডাটাবেস থেকে তথ্য বের করে না।**
+**বর্তমান সংস্করণ: ০.২.০ Desktop Beta।** আগের foundation সংস্করণে বাস্তব assessment queue, HTTP diagnostics, optional sqlmap integration, database inspection, encrypted credential vault এবং আরও রিপোর্ট যোগ হয়েছে। এটি এখনো মূল SRS-এর সব enterprise সুবিধাসহ production release নয়। বাকি কাজ নিচে পরিষ্কারভাবে দেওয়া আছে।
 
-## এখন কী কী করা যায়?
+## ১. ডাউনলোড
 
-| পাতার নাম | কী কাজে লাগবে |
+👉 **[সোর্স কোডের ZIP ডাউনলোড](https://github.com/Juimu/sql-testing-tool/archive/refs/heads/main.zip)**
+
+অথবা [রিপোজিটরি](https://github.com/Juimu/sql-testing-tool) খুলে **Code → Download ZIP → Extract All** করুন। `pom.xml` থাকা ফোল্ডারটি প্রজেক্টের মূল ফোল্ডার।
+
+### Windows-এর চালানোর package কোথায় পাবেন?
+
+[GitHub Actions](https://github.com/Juimu/sql-testing-tool/actions) খুলে সর্বশেষ সফল **Build, test and package** run দেখুন। সবুজ চিহ্ন থাকলে নিচের **Artifacts** অংশ থেকে `SQLNext-Windows-X64` বা প্রদর্শিত Windows artifact ডাউনলোড করুন। GitHub-এ login লাগতে পারে।
+
+Artifact Extract করার পরে ভেতরের `SQLNext-0.2.0-windows-native.zip`-ও Extract করুন। সেখানে `SQLNext/SQLNext.exe` পাবেন; folder layout ভিন্ন হলে `SQLNext.exe` সার্চ করুন। **পুরো SQLNext ফোল্ডার একসঙ্গে রাখবেন**—শুধু `.exe` কপি করবেন না, কারণ পাশে runtime ও library থাকে। Bundled-runtime image হলে আলাদা Java/Maven লাগে না।
+
+Workflow এখনো চললে অপেক্ষা করুন; লাল চিহ্ন থাকলে package প্রস্তুত হয়েছে ধরে নেবেন না। এই cloud পরিবেশে Linux package পরীক্ষা করা হয়েছে; Windows/macOS-এর ফল সংশ্লিষ্ট workflow-তে দেখতে হবে। Package-গুলো code-signed installer নয়।
+
+## ২. কী কী সুবিধা আছে?
+
+| পাতা | কাজ |
 | --- | --- |
-| Overview | প্রজেক্ট, নথিভুক্ত সমস্যা ও কাজের রেকর্ডের সংখ্যা এবং গুরুত্বের চার্ট দেখা |
-| Projects & scope | প্রজেক্ট তৈরি ও পরীক্ষার অনুমোদিত ওয়েব ঠিকানা নির্ধারণ করা |
-| Scope validator | এক বা একাধিক URL অনুমোদিত সীমায় আছে কি না যাচাই করা |
-| Findings | নিজে পাওয়া সমস্যার বিবরণ, গুরুত্ব, প্রমাণ ও সমাধানের অবস্থা লিখে রাখা |
-| Reports | JSON বা HTML রিপোর্ট তৈরি করা |
-| Compatibility | কোন সুবিধা তৈরি হয়েছে ও কোনটি বাকি আছে দেখা |
-| Settings | Dark/Light থিম নির্বাচন ও ডাটাবেসের অবস্থান দেখা |
+| Overview | প্রজেক্ট, findings, verified finding এবং task-এর আসল সংখ্যা দেখা |
+| Projects & scope | অনুমোদনের reference ও অনুমোদিত URL সীমা সংরক্ষণ |
+| Single / batch assessment | এক বা একাধিক অনুমোদিত URL-এর task queue বা schedule করা |
+| Tasks & session history | অবস্থা, ফল, event history; pause/resume/retry/cancel |
+| Scope validator | কোনো request না পাঠিয়ে URL-এর অনুমোদিত সীমা যাচাই |
+| Findings | manual finding ও HTTP observation রাখা, search, reviewer/owner/CWE/CVSS ও status |
+| Database inspection | স্থানীয় SQLite file read-only খুলে table/column ও redacted sample দেখা |
+| Results & evidence | redacted sample group স্থায়ীভাবে রাখা, দেখা, export ও delete |
+| Discovery / endpoints | owned-site query তৈরি ও manually reviewed endpoint URL যাচাই |
+| Controlled laboratories | synthetic SQL, harmless file marker ও fixed script fixture চালানো |
+| Proxy & Tor diagnostics | explicit HTTP/SOCKS5 route ও সীমিত route health check |
+| Analytics / comparison | task-এর সংখ্যা ও একই target-এর দুটি HTTP ফল তুলনা |
+| Reports | JSON, HTML, CSV, SARIF এবং PDF summary |
+| Remediation assistant | local নিয়মভিত্তিক পরামর্শ ও optional external AI draft |
+| Credential vault | master password দিয়ে আলাদা encrypted secret store |
+| Audit & diagnostics | স্থানীয় পরিবর্তনের event দেখা ও JSON export |
+| Compatibility | তৈরি, আংশিক তৈরি ও বাকি সুবিধার তালিকা |
+| Settings | theme, data location, sqlmap ও optional AI configuration |
 
-অ্যাপ বন্ধ করে আবার খুললেও সংরক্ষিত প্রজেক্ট, সমস্যা ও থিম থেকে যায়।
+## ৩. সোর্স থেকে চালাতে যা লাগবে
 
-## ১. কোড ডাউনলোড করুন
+- পূর্ণ **JDK 21 বা নতুন সংস্করণ**; শুধু Java Runtime/JRE নয়। Cloud-এ JDK 25 দিয়ে যাচাই হয়েছে।
+- **Apache Maven 3.9.11** এবং প্রথমবার library ডাউনলোডের ইন্টারনেট।
+- JavaFX চালানোর উপযুক্ত desktop; Linux-এ GTK/graphical libraries দরকার।
 
-👉 **[সরাসরি ZIP ডাউনলোড করুন](https://github.com/Juimu/sql-testing-tool/archive/refs/heads/main.zip)**
-
-অথবা [GitHub রিপোজিটরি](https://github.com/Juimu/sql-testing-tool) খুলে **Code → Download ZIP** চাপুন। ডাউনলোড হলে ZIP ফাইলটি **Extract All** দিয়ে খুলুন।
-
-**এটি সোর্স কোড।** এখনো ডাবল-ক্লিক করে চালানোর `.exe` বা ইনস্টলার তৈরি হয়নি। ZIP Extract করলেই অ্যাপ চালু হবে না।
-
-## ২. চালাতে যা লাগবে
-
-- পূর্ণ **JDK 21 বা নতুন সংস্করণ**। শুধু Java Runtime/JRE যথেষ্ট নয়। প্রস্তুত cloud পরিবেশে JDK 25 দিয়ে পরীক্ষা করা হয়েছে।
-- **Apache Maven 3.9.11**।
-- প্রথমবার প্রয়োজনীয় লাইব্রেরি ডাউনলোডের জন্য ইন্টারনেট।
-- অ্যাপের উইন্ডো দেখানোর উপযুক্ত ডেস্কটপ পরিবেশ। Linux-এ প্রয়োজনীয় GTK ও গ্রাফিক্যাল লাইব্রেরি থাকতে হবে।
-
-JavaFX 21.0.8 এবং অন্য Java লাইব্রেরি Maven ডাউনলোড করবে। Windows/macOS এবং native installer এখনো যাচাই করা হয়নি।
-
-Terminal বা PowerShell-এ পরীক্ষা করুন:
+Terminal বা PowerShell-এ দেখুন:
 
 ```sh
 java -version
@@ -43,187 +55,185 @@ javac -version
 mvn -version
 ```
 
-তিনটি কমান্ডেই সংস্করণের তথ্য আসা উচিত। `javac` না পাওয়া গেলে পূর্ণ JDK ইনস্টল করুন। `mvn` না পাওয়া গেলে Maven ইনস্টল করে তার `bin` ফোল্ডার `PATH`-এ যোগ করুন। এরপর নতুন Terminal খুলুন। Maven ভুল Java ব্যবহার করলে `JAVA_HOME` আপনার JDK ফোল্ডারে সেট করুন।
+কোনো কমান্ড না পাওয়া গেলে সংশ্লিষ্ট software ইনস্টল করে `PATH` ঠিক করুন এবং নতুন Terminal খুলুন। Maven ভুল Java ব্যবহার করলে `JAVA_HOME` পূর্ণ JDK ফোল্ডারে দিন।
 
-## ৩. অ্যাপ চালু করুন
-
-ZIP Extract করার পরে **যে ফোল্ডারে `pom.xml` আছে**, সেখানে Terminal খুলুন। Windows-এ ফোল্ডারের **Open in Terminal** ব্যবহার করতে পারেন। অথবা লিখুন:
-
-```sh
-cd sql-testing-tool-main
-```
-
-আপনার ফোল্ডারের নাম আলাদা হলে সেই নাম দিন। এরপর বিল্ড ও মূল পরীক্ষা চালান:
+`pom.xml` থাকা ফোল্ডারে Terminal খুলে চালান:
 
 ```sh
 mvn verify
-```
-
-প্রথমবার লাইব্রেরি ডাউনলোড হতে সময় লাগতে পারে। সফল হলে শেষে `BUILD SUCCESS` দেখাবে। এই সাধারণ কমান্ডে মূল পরীক্ষাগুলো চলে; নিচের headless প্রোফাইলে UI পরীক্ষাও চলে।
-
-অ্যাপের উইন্ডো খুলতে:
-
-```sh
 mvn javafx:run
 ```
 
-`target` ফোল্ডারের JAR ডাবল-ক্লিক করে বা `java -jar` দিয়ে চালাবেন না। এটি একা চলার মতো প্যাকেজ নয়; Maven প্রয়োজনীয় লাইব্রেরিসহ অ্যাপ চালায়।
-
-## ৪. প্রথমবার ব্যবহার করুন
-
-### প্রজেক্ট তৈরি
-
-**Projects & scope** খুলে নিচের মতো তথ্য দিন:
-
-| ঘর | উদাহরণ |
-| --- | --- |
-| Project name | আমার অনুমোদিত টেস্ট প্রজেক্ট |
-| Approved scope | `https://example.org/app` |
-| Authorization reference | অনুমোদনের টিকিট নম্বর, যেমন `AUTH-001` |
-
-**Create project** চাপুন। অনুমোদনের রেফারেন্স লিখবেন; পাসওয়ার্ড বা গোপন টোকেন লিখবেন না। এই রেফারেন্স নিজে থেকে মালিকানা বা অনুমতি যাচাই করে না। উদাহরণের ঠিকানাগুলো বোঝানোর জন্য; বাস্তবে নিজের বা অনুমোদিত প্রজেক্টের ঠিকানা ব্যবহার করুন।
-
-### URL-এর সীমা যাচাই
-
-**Scope validator** খুলুন, প্রজেক্ট নির্বাচন করুন এবং প্রতি লাইনে একটি URL লিখুন। তারপর **Validate URLs** চাপুন। একবারে সর্বোচ্চ ১,০০০ URL দেওয়া যায়।
-
-Scope যদি `https://example.org/app` হয়:
-
-| URL | ফলাফল |
-| --- | --- |
-| `https://example.org/app` | IN SCOPE — অনুমোদিত সীমায় আছে |
-| `https://example.org/app/orders?id=1` | IN SCOPE — অনুমোদিত সীমায় আছে |
-| `https://example.org/application` | OUT OF SCOPE — অনুমোদিত পথের বাইরে |
-| `https://other.org/app` | OUT OF SCOPE — ভিন্ন হোস্ট |
-| `http://example.org/app` | OUT OF SCOPE — ভিন্ন প্রোটোকল |
-
-হোস্ট, প্রোটোকল, পোর্ট ও পথ মিলিয়ে যাচাই হয়। একই URL আবার দিলে `DUPLICATE` দেখায়। ভুল URL, URL-এ লগইন তথ্য, fragment, encoded path এবং `..` দিয়ে পথ বদলানোর চেষ্টা গ্রহণ করা হয় না।
-
-**এটি আপনার কম্পিউটারে হওয়া URL যাচাই। ওয়েবসাইটে অনুরোধ পাঠানো বা দুর্বলতা পরীক্ষা করা হয় না।**
-
-### সমস্যার তথ্য সংরক্ষণ
-
-1. **Findings → Record a finding** খুলুন।
-2. প্রজেক্ট নির্বাচন করুন এবং তার অনুমোদিত সীমার মধ্যে থাকা Target URL দিন।
-3. সমস্যার শিরোনাম লিখুন।
-4. গুরুত্ব নির্বাচন করুন: `Critical`, `High`, `Medium`, `Low` বা `Info`।
-5. গোপন তথ্য বাদ দিয়ে প্রমাণ ও সমাধানের নোট লিখুন।
-6. **OK** চাপুন।
-
-এগুলো আপনার দেওয়া **যাচাই হয়নি এমন manual entry**। অ্যাপ এগুলোকে স্বয়ংক্রিয়ভাবে প্রমাণিত দুর্বলতা বলে ধরে নেয় না। একই project, URL ও title দিয়ে দ্বিতীয়বার সমস্যা যোগ করা যায় না।
-
-Search দিয়ে খুঁজুন এবং **View evidence** দিয়ে নোট দেখুন। একটি সমস্যা নির্বাচন করে অবস্থা বদলান, তারপর **Update selected** চাপুন:
-
-| অবস্থা | অর্থ |
-| --- | --- |
-| Open | সমস্যা নথিভুক্ত আছে |
-| In Progress | সমাধানের কাজ চলছে |
-| Fixed | ব্যবহারকারী সমাধান হয়েছে বলে চিহ্নিত করেছেন |
-| Accepted Risk | ঝুঁকি মেনে নেওয়া হয়েছে |
-| Reopened | সমস্যাটি আবার খোলা হয়েছে |
-
-`Fixed` নির্বাচন করলে অ্যাপ আবার পরীক্ষা করে সমাধান নিশ্চিত করে না। Dashboard-এর open গণনায় `Fixed` ছাড়া সব অবস্থা অন্তর্ভুক্ত হয়।
-
-### রিপোর্ট তৈরি
-
-**Reports → Export JSON** অথবা **Export HTML** চাপুন। নতুন ফাইলের নাম ও অবস্থান নির্বাচন করুন। HTML রিপোর্ট ব্রাউজারে খোলা যায়।
-
-রিপোর্টে পুরো workspace-এর প্রজেক্ট ও সমস্যার সারাংশ থাকে। বিস্তারিত evidence, অনুমোদনের নোট এবং সমস্যার target URL বাদ দেওয়া হয়। প্রজেক্টের scope URL ও শিরোনাম থাকে—শেয়ার করার আগে পড়ে দেখুন। একই নামের ফাইল আগে থেকে থাকলে অন্য নাম দিন; অ্যাপ আগের ফাইল মুছে লেখে না।
-
-## ৫. তথ্য ও ব্যাকআপ
-
-সাধারণভাবে তথ্য থাকে `~/.sqlnext/workspace.db` ফাইলে। এখানে `~` আপনার ব্যবহারকারীর হোম ফোল্ডার। **Settings** পাতায় ব্যবহৃত অবস্থান দেখা যায়।
-
-অন্য ফোল্ডারে রাখতে:
-
-```sh
-mvn javafx:run -Djavafx.options="-Dsqlnext.data=/path/to/workspace"
-```
-
-`/path/to/workspace`-এর জায়গায় লেখার অনুমতি আছে এমন ফোল্ডার দিন। `SQLNEXT_DATA` পরিবেশ ভেরিয়েবল দিয়েও অবস্থান নির্ধারণ করা যায়; `sqlnext.data` দিলে সেটি অগ্রাধিকার পায়।
-
-ব্যাকআপ নিতে অ্যাপ বন্ধ করে `workspace.db` ফাইলের কপি নিরাপদ স্থানে রাখুন। বর্তমান ডাটাবেস ও audit রেকর্ড **এনক্রিপ্ট করা নয়** এবং একজন স্থানীয় ব্যবহারকারীর জন্য তৈরি। পাসওয়ার্ড, API key বা সংবেদনশীল বাস্তব তথ্য রাখবেন না।
-
-## ৬. প্রস্তুত cloud পরিবেশের নির্দেশনা
-
-এই অংশ প্রস্তুত Linux cloud workspace-এর জন্য। নিজের Windows কম্পিউটারে আগের সাধারণ Maven নির্দেশনা ব্যবহার করুন।
-
-```sh
-cd /workspace/sql-testing-tool
-bash scripts/cloud-setup.sh
-```
-
-Setup script প্রয়োজন হলে official checksum যাচাই করে JDK 25 ও Maven প্রস্তুত করে, cloud proxy ও বিশ্বস্ত CA ব্যবহার করে এবং পরীক্ষা চালায়। প্রয়োজনীয় টুল থাকলে আবার ডাউনলোড করে না।
-
-আগে থেকে প্রস্তুত থাকলে পরীক্ষা চালাতে:
-
-```sh
-bash scripts/cloud-mvn.sh -Pheadless verify
-```
-
-নিজের উপযুক্ত Linux পরিবেশে পর্দা ছাড়া পরীক্ষা চালাতে:
+প্রথম কমান্ড build ও মূল পরীক্ষা করে; সফল হলে `BUILD SUCCESS` দেখাবে। দ্বিতীয়টি অ্যাপের উইন্ডো খোলে। UI-সহ headless পরীক্ষা করতে:
 
 ```sh
 mvn -Pheadless verify
 ```
 
-এই headless পরীক্ষা পর্দা ছাড়াই JavaFX toolkit চালিয়ে অ্যাপের শুরু ও view তৈরি যাচাই করে। এটি দূরবর্তী ডেস্কটপ বা ওয়েব প্রিভিউ তৈরি করে না। গ্রাফিক্যাল display থাকলে:
+`target/sqlnext-0.2.0.jar` একা চলার fat JAR নয়; `java -jar` ব্যবহার করবেন না।
+
+## ৪. প্রথম assessment চালান
+
+### প্রজেক্ট তৈরি
+
+**Projects & scope** পাতায় উদাহরণের মতো তথ্য দিন:
+
+| ঘর | উদাহরণ |
+| --- | --- |
+| Project name | আমার অনুমোদিত প্রজেক্ট |
+| Approved scope | `https://example.org/app` |
+| Authorization reference | অনুমোদনের টিকিট `AUTH-001` |
+
+**Create project** চাপুন। এখানে নিজের বা লিখিতভাবে অনুমোদিত target ব্যবহার করুন। Reference লিখলেই অ্যাপ নিজে থেকে মালিকানা বা অনুমতি প্রমাণ করে না। Password/token reference ঘরে লিখবেন না।
+
+### Profile নির্বাচন
+
+**Single / batch assessment** খুলে project ও profile নির্বাচন করুন:
+
+| Profile | আসলে কী করে |
+| --- | --- |
+| HTTP baseline | সীমিত GET request; response status, security headers, TLS ও database error marker পর্যবেক্ষণ |
+| Endpoint exposure | আপনার দেওয়া exact endpoint-গুলোর একই HTTP diagnostics; কোনো unrestricted wordlist enumeration নয় |
+| sqlmap diagnostic | আলাদা installed sqlmap দিয়ে risk-1/level-1 boolean/error diagnostics; dumping বা file access flag নেই |
+| SQL lab | in-memory synthetic SQLite-তে unsafe query ও prepared statement-এর পার্থক্য পরীক্ষা |
+| File lab | অ্যাপের ভেতরে থাকা harmless marker file পড়া; remote server file পড়া নয় |
+| Script lab | নির্দিষ্ট স্থানীয় text-transformation fixture ও identifier পরীক্ষা; WAF bypass নয় |
+
+প্রতি লাইনে একটি target URL দিন; সর্বোচ্চ ১০০টি আলাদা URL। URL text file import করা যায়। Labs-এ URL শুধু project attribution-এর জন্য; কোনো network request হয় না।
+
+Route দিন: `DIRECT`, `http://host:port` বা `socks5://host:port`। Priority ও কত মিনিট পরে চালাতে হবে নির্বাচন করুন। অনুমোদন নিশ্চিত করার checkbox টিক দিয়ে **Validate & queue** চাপুন।
+
+সব URL আগে scope-এর সঙ্গে মেলে। Invalid/out-of-scope URL থাকলে queue তৈরি হয় না। একই project/URL/profile-এর unfinished task আবার দেওয়া হলে সেটি বাদ যায়।
+
+### Scope কীভাবে মেলে?
+
+Scope `https://example.org/app` হলে:
+
+| URL | ফল |
+| --- | --- |
+| `https://example.org/app` | অনুমোদিত |
+| `https://example.org/app/orders?id=1` | অনুমোদিত |
+| `https://example.org/application` | অনুমোদিত পথের বাইরে |
+| `http://example.org/app` | ভিন্ন protocol |
+| `https://other.org/app` | ভিন্ন host |
+
+Scheme, host, port ও path boundary মিলতে হয়। Credentials, fragments, encoded paths ও traversal path গ্রহণ করা হয় না। HTTP diagnostic redirects অনুসরণ করে না; proxy ব্যর্থ হলে চুপিসারে direct route নেয় না।
+
+## ৫. Task ও ফলাফল
+
+**Tasks & session history**-তে প্রতি সেকেন্ডে অবস্থা হালনাগাদ হয়:
+
+- `QUEUED`: চালানোর অপেক্ষায়; pause করা যায়।
+- `PAUSED`: resume করা যায়।
+- `RUNNING`: চলছে; cancel করা যায়।
+- `COMPLETED`: engine শেষ করেছে; এর অর্থ target নিরাপদ বা verified vulnerable নয়।
+- `FAILED`: network/dependency/engine failure; কারণ দেখে manual retry করুন।
+- `CANCELLED`: বাতিল হয়েছে।
+- `INTERRUPTED`: আগের session হঠাৎ বন্ধ হয়েছিল; নিজে retry করতে হবে।
+
+একটি worker কাজ চালায়; task-এর মাঝে অন্তত ১.১ সেকেন্ড বিরতি থাকে। HTTP response সর্বোচ্চ ৬৪ KiB পড়ে। Connect/read ও overall read limits আছে। Running request বাতিল হতে timeout পর্যন্ত সামান্য সময় লাগতে পারে। sqlmap-এর deadline তিন মিনিট; cancel হলে তার owned child process-ও বন্ধ করার চেষ্টা করা হয়।
+
+**View result**-এ curated ফল, **Event history**-তে state পরিবর্তন দেখুন। HTTP task নির্বাচন করে **Import observations** চাপলে unverified findings যোগ হয়; আগের একই finding-এর evidence overwrite হয় না। sqlmap candidate এখনই auto-import করা হয় না—ফল review করে Findings-এ entry করুন।
+
+## ৬. Optional sqlmap সেটআপ
+
+Python 3 এবং trusted sqlmap distribution প্রয়োজন। Cloud/developer machine-এ helper চালাতে পারেন:
 
 ```sh
-bash scripts/cloud-mvn.sh javafx:run
+python scripts/install-sqlmap.py
 ```
 
-Cloud helper তথ্যের জন্য সাধারণভাবে `/workspace/sqlnext-data` ব্যবহার করে। Cloud-এ interactive desktop ব্যবহার যাচাই করা হয়নি।
+Helper PyPI-এর নির্দিষ্ট `1.10.10` source release নামায়, SHA-256 যাচাই করে user tool directory-তে extract করে এবং paths দেখায়। এটি app task configuration বদলায় না।
 
-## ৭. সমস্যা হলে কী করবেন?
+**Settings → Configure sqlmap paths**-এ Python executable এবং `sqlmap.py`-এর পূর্ণ path দিন। Windows-এ Python executable খুঁজতে `where.exe python` ব্যবহার করতে পারেন।
 
-| সমস্যা | করণীয় |
+Adapter শুধু নির্দিষ্ট flags ব্যবহার করে: `--risk=1 --level=1 --technique=BE --threads=1 --timeout=5 --retries=0 --delay=1 --ignore-redirects`। Arbitrary shell command/extra flags, database dumping, server-file read বা tamper execution নেয় না।
+
+Engine-এর নিজস্ব output data directory-র `engine-output/task-ID`-তে থাকে; এতে sensitive target information থাকতে পারে এবং এটি encrypted নয়। প্রয়োজনমতো retention ও filesystem access নিয়ন্ত্রণ করুন।
+
+## ৭. Findings review ও রিপোর্ট
+
+**Findings → Record a finding** দিয়ে title, target, severity ও redacted evidence লিখুন। **Review selected** দিয়ে reviewer, owner, CWE যেমন `CWE-89`, নিজের assessed CVSS score `0–10` এবং verification দিন। CVSS vector calculator নেই।
+
+`Verified` হলো সংরক্ষিত মানুষের সিদ্ধান্ত; অ্যাপের স্বয়ংক্রিয় সত্যায়ন নয়। Remediation status আলাদা: `Open`, `In Progress`, `Fixed`, `Accepted Risk`, `Reopened`। `Fixed` দিলেই পুনরায় পরীক্ষা হয় না। **Status history**-তে পরিবর্তন দেখা যায়।
+
+**Reports** থেকে নতুন ফাইলে export করুন:
+
+- JSON/HTML: Unicode title-সহ project, findings ও task summary।
+- CSV: finding table; spreadsheet formula-এর ঝুঁকি কমাতে formula prefix neutralize করা হয়।
+- SARIF: findings; unverified ফল `note`, false-positive review বাদ যায়।
+- PDF: portable English/ASCII summary by IDs; পূর্ণ বাংলা title-এর জন্য HTML/JSON ব্যবহার করুন।
+
+Evidence, finding target URL, authorization note ও raw engine output report-এ বাদ থাকে। Project scope ও title থাকে—শেয়ার করার আগে পড়ুন। আগের ফাইল overwrite হয় না; নতুন নাম দিন।
+
+## ৮. Database, vault ও AI
+
+**Database inspection:** অনুমোদিত local SQLite file নির্বাচন করুন; table/column দেখুন, Select all/none ব্যবহার করুন এবং redacted preview append করুন। সর্বোচ্চ ২০টি row; মান `[REDACTED]` থাকে। Project নির্বাচন করলে sample আলাদা persistent group হিসেবে Results & evidence-এ জমা হয়। Remote MySQL/PostgreSQL/SQL Server/Oracle connections বা driver bundle নেই; assistant-এ DBMS-specific guidance আছে।
+
+**Credential vault:** অন্তত ১২ অক্ষরের master password দিয়ে named secret save/update/list-name/remove করা যায়। AES-256-GCM এবং PBKDF2-HMAC-SHA256, ৬০০,০০০ iteration ব্যবহৃত হয়। Master password disk-এ রাখা হয় না; হারালে উদ্ধার করা যায় না। OS keychain integration নেই। Workspace-এর অন্য তথ্য এই vault দিয়ে encrypted হয় না।
+
+**Remediation assistant:** local advice কোনো AI model নয়। External AI ব্যবহার করতে vault-এ API key রাখুন, Settings-এ HTTPS OpenAI-compatible chat-completions endpoint/model/vault-entry-name দিন। Verified finding নির্বাচন করে **External AI (review & approve)** চাপুন। Displayed title/severity/CWE পর্যালোচনা করে approval দিন এবং vault password দিন। সংরক্ষিত default route ব্যবহার হয়; approval dialog-এ সেটি দেখুন। শুধু এই তিনটি finding field পাঠানো হয়; title-এও sensitive তথ্য থাকতে পারে। Evidence/target URL স্বয়ংক্রিয়ভাবে পাঠানো হয় না। Output human-reviewed draft, verification result নয়। Live AI service এই cloud-এ পরীক্ষা করা হয়নি; credential/configuration আপনার প্রয়োজন।
+
+## ৯. তথ্যের অবস্থান ও ব্যাকআপ
+
+সাধারণ database `~/.sqlnext/workspace.db`; Settings-এ আসল path দেখুন। Vault পাশের `credentials.vault` ফাইলে থাকে। Cloud helper সাধারণভাবে `/workspace/sqlnext-data` ব্যবহার করে।
+
+অন্য data directory দিতে:
+
+```sh
+mvn javafx:run -Djavafx.options="-Dsqlnext.data=/path/to/workspace"
+```
+
+অথবা `SQLNEXT_DATA` environment variable ব্যবহার করুন। ব্যাকআপ নিতে অ্যাপ বন্ধ করে **পুরো data directory** কপি করুন। পুরোনো ০.১ workspace-এর tables রাখা হয় এবং নতুন schema যোগ হয়; upgrade-এর আগে ব্যাকআপ রাখুন। Workspace/audit plaintext; vault ছাড়া কোথাও password বা unredacted sensitive evidence রাখবেন না। Audit স্থানীয় এবং tamper-proof নয়।
+
+## ১০. Cloud, package ও পরীক্ষা
+
+```sh
+cd /workspace/sql-testing-tool
+bash scripts/cloud-setup.sh
+bash scripts/cloud-mvn.sh -Pheadless verify
+```
+
+Setup official checksum, managed CA trust ও proxy configuration ব্যবহার করে। Verification বন্ধ করবেন না। Graphical display থাকলে `bash scripts/cloud-mvn.sh javafx:run`। Headless test কোনো web preview বা remote desktop তৈরি করে না।
+
+নিজের OS-এর dependency-included ZIP তৈরি করতে Maven verify-এর পরে:
+
+```sh
+python scripts/package.py
+```
+
+পূর্ণ JDK-এর `JAVA_HOME` ঠিক থাকলে bundled-runtime native app image:
+
+```sh
+python scripts/package.py --native
+```
+
+Package-এ সেই OS-এর JavaFX native libraries থাকে; Linux ZIP Windows-এ ব্যবহার করবেন না। Runtime-বিহীন dependency ZIP-এ `SQLNext.bat`/`SQLNext.sh` চালাতে Java 21+ দরকার। Native image-এ আলাদা Java লাগে না। Native launcher যাচাই:
+
+```sh
+# Linux উদাহরণ
+./target/native/SQLNext/bin/SQLNext --self-test
+```
+
+Build-এর `target/bom.json`/`bom.xml` হলো CycloneDX SBOM; distribution-এ SHA-256 file manifest থাকে। এটি code signing বা complete dependency lock-এর বিকল্প নয়।
+
+HTTP fixture, scope, state persistence/recovery, reviewer history, vault tampering/wrong-password, report formats, SQLite redaction, process cancellation এবং UI থেকে lab queue করে completion পরীক্ষা করা হয়। Optional real sqlmap test শুধু local in-memory vulnerable fixture-এর বিরুদ্ধে চলে; public target ব্যবহার করে না। Live AI, real Tor/proxy end-to-end routing এবং সব OS-এর UI coverage দাবি করা হচ্ছে না।
+
+## ১১. সমস্যা হলে
+
+| সমস্যা | কী করবেন |
 | --- | --- |
-| `mvn` পাওয়া যাচ্ছে না | Maven ইনস্টল করুন, `PATH` ঠিক করুন ও নতুন Terminal খুলুন |
-| `javac` পাওয়া যাচ্ছে না | শুধু JRE নয়, পূর্ণ JDK ইনস্টল করুন |
-| `release version 21 not supported` | JDK 21 বা নতুন সংস্করণ এবং Maven-এর ব্যবহৃত Java যাচাই করুন |
-| `pom.xml` পাওয়া যাচ্ছে না | `pom.xml` থাকা মূল ফোল্ডারে যান |
-| লাইব্রেরি ডাউনলোড ব্যর্থ | ইন্টারনেট, proxy ও certificate trust configuration দেখুন; TLS যাচাই বন্ধ করবেন না |
-| `Unable to open DISPLAY` | অ্যাপের উইন্ডোর জন্য গ্রাফিক্যাল desktop দরকার; শুধু পরীক্ষার জন্য headless কমান্ড ব্যবহার করুন |
-| Target scope-এর বাইরে | অনুমোদিত ঠিকানার scheme, host, port ও path মিলিয়ে দেখুন |
-| Finding যোগ হচ্ছে না | সব ঘর পূরণ করুন এবং একই project/URL/title আগে আছে কি না দেখুন |
-| রিপোর্ট সেভ হচ্ছে না | লেখার অনুমতি আছে এমন ফোল্ডার ও নতুন ফাইলের নাম দিন |
+| `mvn`/`javac` নেই | Maven/পূর্ণ JDK ইনস্টল, PATH ও JAVA_HOME ঠিক করে নতুন Terminal খুলুন |
+| `pom.xml` পাওয়া যাচ্ছে না | সঠিক project root-এ যান |
+| Java release error | Maven-এর Java version 21+ কি না দেখুন |
+| `Unable to open DISPLAY` | UI-এর জন্য graphical desktop; test-এর জন্য headless profile |
+| Task FAILED | result diagnostic, target scope, route ও dependency paths দেখুন |
+| Finding/report save হয় না | duplicate entry বা আগে থেকে থাকা filename পরীক্ষা করুন |
+| Vault খোলে না | সঠিক master password ও অক্ষত vault file দরকার; password recover করা যায় না |
+| Library download ব্যর্থ | connection/proxy/CA trust ঠিক করুন; TLS verification বন্ধ করবেন না |
 
-## ৮. কোন সুবিধাগুলো এখনো বাকি?
+## ১২. যা এখনো পূর্ণ হয়নি
 
-- স্বয়ংক্রিয় SQL Injection পরীক্ষা ও sqlmap integration।
-- প্রকৃত batch assessment, task scheduling এবং task recovery।
-- ডাটাবেস, টেবিল ও কলাম পরিদর্শন এবং নিয়ন্ত্রিত sample-data workflow।
-- Asset discovery, endpoint পরীক্ষা এবং নিয়ন্ত্রিত file/script laboratory।
-- Tor এবং HTTP/SOCKS5 proxy ব্যবস্থাপনা।
-- AI assistant, plugins ও external integration।
-- Credential vault, encryption, user role ও team permission।
-- PDF, CSV, SARIF রিপোর্ট ও পুরোনো পরীক্ষার সঙ্গে তুলনা।
-- Native installer, স্বয়ংক্রিয় update এবং Windows/macOS-এর পূর্ণ যাচাই।
+মূল SRS-এর team login/RBAC, signed ও sandboxed plugin execution, OS keychain, remote multi-DB drivers, automatic Tor lifecycle/exit-IP verification, advanced report branding/retention, signed updater/rollback এবং signed native installers এখনো নেই। Arbitrary external search-result exploitation, production data dumping বা unrestricted tamper/file-read workflow যোগ করা হয়নি; সংশ্লিষ্ট SRS-এর controlled alternatives রাখা হয়েছে।
 
-সরাসরি dependency ও build plugin-এর সংস্করণ নির্দিষ্ট আছে। সম্পূর্ণ transitive dependency lock, SBOM এবং production release যাচাই এখনো হয়নি।
-
-## ৯. কী পরীক্ষা করা হয়েছে?
-
-প্রস্তুত Linux cloud পরিবেশে **৪টি automated test পাস করেছে** এবং Maven build সফল হয়েছে।
-
-- `WorkspaceTest`: scope-এর সীমা, ভুল তথ্য প্রত্যাখ্যান, duplicate প্রতিরোধ, transaction rollback, audit-এর সামঞ্জস্য, ডাটাবেস আবার খুললে তথ্য থাকা, settings এবং report export যাচাই করে।
-- `AppSmokeTest`: headless JavaFX toolkit চালিয়ে সাতটি view তৈরি ও dashboard layout যাচাই করে।
-
-এটি সব বাটনের পূর্ণ interactive পরীক্ষা, Windows/macOS যাচাই বা production release certification নয়।
-
-## ১০. গুরুত্বপূর্ণ ফাইল
-
-| ফাইল বা ফোল্ডার | কাজ |
-| --- | --- |
-| `pom.xml` | Maven build ও dependency configuration |
-| `src/main/java/dev/sqlnext/App.java` | ডেস্কটপ অ্যাপ ও পাতাগুলো |
-| `src/main/java/dev/sqlnext/Store.java` | SQLite-এ তথ্য সংরক্ষণ |
-| `src/main/java/dev/sqlnext/Scope.java` | URL-এর অনুমোদিত সীমা যাচাই |
-| `src/main/java/dev/sqlnext/Reports.java` | JSON/HTML রিপোর্ট তৈরি |
-| `src/main/resources/theme.css` | রং ও সাজসজ্জা |
-| `src/test/` | Automated test |
-| [মূল SRS](docs/SRS-v1.0.md) | আপনার দেওয়া বিস্তারিত পরিকল্পনা |
-| [Compatibility register](src/main/resources/compatibility.tsv) | কোন সুবিধা কতটুকু তৈরি হয়েছে |
-
-মূল SqliDumper v5.5-এর সোর্স বা executable দেওয়া হয়নি। তাই তার সঙ্গে আচরণগত সামঞ্জস্য নিশ্চিত করা হয়নি। এই README বর্তমান কোডের বাস্তব সুবিধা ও সীমাবদ্ধতা বর্ণনা করে।
+এই সংস্করণকে সম্পূর্ণ production/enterprise edition বলা হচ্ছে না। [Compatibility register](src/main/resources/compatibility.tsv), [requirement status](docs/requirements-status.csv), [মূল SRS](docs/SRS-v1.0.md) এবং [release checklist](docs/RELEASE-CHECKLIST.md) দেখুন। মূল v5.5 executable/source না থাকায় legacy behavior compatibility নিশ্চিত করা হয়নি।
