@@ -41,10 +41,20 @@ if '--native' in sys.argv:
     if image.exists():
         shutil.rmtree(image)
     jpackage = str(Path(os.environ['JAVA_HOME']) / 'bin' / ('jpackage.exe' if platform.system() == 'Windows' else 'jpackage')) if os.environ.get('JAVA_HOME') else 'jpackage'
-    subprocess.run([jpackage, '--type', 'app-image', '--name', 'SQLNext', '--app-version', version,
+    command = [jpackage, '--type', 'app-image', '--name', 'SQLNext', '--app-version', version,
                     '--input', str(base / 'lib'), '--main-jar', f'sqlnext-{version}.jar',
                     '--main-class', 'dev.sqlnext.Launcher', '--dest', str(destination),
-                    '--java-options', '--enable-native-access=ALL-UNNAMED'], check=True)
+                    '--java-options', '--enable-native-access=ALL-UNNAMED']
+    result = subprocess.run(command, capture_output=True, text=True)
+    if result.stdout:
+        print(result.stdout)
+    if result.stderr:
+        print(result.stderr, file=sys.stderr)
+    if result.returncode:
+        diagnostic = (result.stderr or result.stdout or 'No jpackage diagnostic')[-6000:]
+        diagnostic = diagnostic.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+        print('::error title=Native jpackage diagnostic::' + diagnostic)
+        raise SystemExit(result.returncode)
     print(image)
     native_name = f'SQLNext-{version}-{platform.system().lower()}-native'
     if platform.system() == 'Darwin':
