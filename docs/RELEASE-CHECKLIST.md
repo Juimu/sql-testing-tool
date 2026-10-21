@@ -12,7 +12,8 @@ This is a desktop beta, not the SRS production release acceptance.
 - [x] JavaFX view construction and UI-driven task execution tested headlessly on Linux.
 - [x] Existing version-1 workspace migration tested.
 - [x] Linux native app-image created; bundled-runtime self-test passed.
-- [ ] Windows/macOS workflow results reviewed and native UI manually tested.
+- [x] Ubuntu/Windows/macOS ARM64 build, core tests, package generation and bundled-runtime self-tests passed in run 39680139512.
+- [ ] Interactive native UI manually tested on Windows/macOS; macOS Intel packaging verified.
 - [ ] External AI verified with a live configured HTTPS service (transport/approval/redaction tests exist).
 - [ ] HTTP/SOCKS5/Tor routing verified against configured real proxy infrastructure.
 - [ ] Team authentication, role enforcement and OS keychain integration.

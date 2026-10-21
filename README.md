@@ -4,6 +4,8 @@ SQLNext একটি JavaFX ডেস্কটপ অ্যাপ: অনুম�
 
 **বর্তমান সংস্করণ: ০.২.০ Desktop Beta।** আগের foundation সংস্করণে বাস্তব assessment queue, HTTP diagnostics, optional sqlmap integration, database inspection, encrypted credential vault এবং আরও রিপোর্ট যোগ হয়েছে। এটি এখনো মূল SRS-এর সব enterprise সুবিধাসহ production release নয়। বাকি কাজ নিচে পরিষ্কারভাবে দেওয়া আছে।
 
+**যাচাইকৃত build:** [এই GitHub Actions run](https://github.com/Juimu/sql-testing-tool/actions/runs/39680139512)-এ Linux, Windows এবং macOS ARM64-এর build ও bundled-runtime self-test সফল। এটি সব OS-এর manual graphical UI পরীক্ষা বা production certification নয়।
+
 ## ১. ডাউনলোড
 
 👉 **[সোর্স কোডের ZIP ডাউনলোড](https://github.com/Juimu/sql-testing-tool/archive/refs/heads/main.zip)**
