@@ -25,3 +25,7 @@ The build produces CycloneDX JSON/XML SBOMs. A Linux dependency ZIP and a bundle
 A previous process-cancellation test exposed descendant reaping order. The supervisor was corrected to terminate/reap descendants before the parent; the targeted test and full suite then passed.
 
 External AI approval, verified-finding restriction and payload minimization are tested through a fake transport. A live AI endpoint has not been called. Real Tor/proxy routing, OS keychain, roles, plugin/update signatures and original v5.5 compatibility are not validated by these tests. See RELEASE-CHECKLIST.md for remaining production requirements.
+
+GitHub Actions run [39679397048](https://github.com/Juimu/sql-testing-tool/actions/runs/39679397048) completed Ubuntu and Windows jobs successfully, producing Linux and Windows artifacts. The macOS job failed at packaging; diagnostic capture was added in the subsequent commit. Those Windows results cover core tests and package generation, not manual graphical use.
+
+The captured macOS failure was the jpackage CFBundleVersion constraint: its first component cannot be zero. The packager now maps pre-1.0 macOS native metadata from 0.x.y to 1.x.y while retaining the actual product/archive version, recorded in PACKAGE-INFO.json. The native packaging command also executes the bundled application's display-free self-test before archiving. Cross-OS results for this correction must be checked in the new run.

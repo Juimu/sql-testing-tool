@@ -12,6 +12,9 @@ import xml.etree.ElementTree as ET
 
 root = Path(__file__).resolve().parents[1]
 version = ET.parse(root / 'pom.xml').getroot().find('{*}version').text
+# Apple requires a positive first component for CFBundleVersion. Keep the
+# product/archive version unchanged; only pre-1.0 macOS bundle metadata is mapped.
+native_version = ('1.' + version.split('.', 1)[1]) if platform.system() == 'Darwin' and version.startswith('0.') else version
 base = root / 'target' / 'distribution'
 if base.exists():
     shutil.rmtree(base)
@@ -26,6 +29,7 @@ shutil.copytree(root / 'docs', base / 'docs')
 (base / 'SQLNext.bat').write_text('@echo off\r\ncd /d "%~dp0"\r\njava --enable-native-access=ALL-UNNAMED -cp "lib/*" dev.sqlnext.Launcher\r\nif errorlevel 1 pause\r\n')
 (base / 'SQLNext.sh').write_text('#!/usr/bin/env sh\nset -eu\ncd "$(dirname "$0")"\nexec java --enable-native-access=ALL-UNNAMED -cp "lib/*" dev.sqlnext.Launcher "$@"\n')
 (base / 'SQLNext.sh').chmod(0o755)
+(base / 'PACKAGE-INFO.json').write_text(json.dumps({'productVersion': version, 'nativeBundleVersion': native_version, 'os': platform.system(), 'architecture': platform.machine()}, indent=2))
 manifest = {str(p.relative_to(base)): hashlib.sha256(p.read_bytes()).hexdigest() for p in base.rglob('*') if p.is_file()}
 (base / 'SHA256SUMS.json').write_text(json.dumps(manifest, indent=2))
 archive = root / 'target' / f'SQLNext-{version}-{platform.system().lower()}-{platform.machine()}.zip'
@@ -41,7 +45,7 @@ if '--native' in sys.argv:
     if image.exists():
         shutil.rmtree(image)
     jpackage = str(Path(os.environ['JAVA_HOME']) / 'bin' / ('jpackage.exe' if platform.system() == 'Windows' else 'jpackage')) if os.environ.get('JAVA_HOME') else 'jpackage'
-    command = [jpackage, '--type', 'app-image', '--name', 'SQLNext', '--app-version', version,
+    command = [jpackage, '--type', 'app-image', '--name', 'SQLNext', '--app-version', native_version,
                     '--input', str(base / 'lib'), '--main-jar', f'sqlnext-{version}.jar',
                     '--main-class', 'dev.sqlnext.Launcher', '--dest', str(destination),
                     '--java-options', '--enable-native-access=ALL-UNNAMED']
@@ -56,6 +60,13 @@ if '--native' in sys.argv:
         print('::error title=Native jpackage diagnostic::' + diagnostic)
         raise SystemExit(result.returncode)
     print(image)
+    native_executable = image / ('SQLNext.exe' if platform.system() == 'Windows' else 'Contents/MacOS/SQLNext' if platform.system() == 'Darwin' else 'bin/SQLNext')
+    self_test = subprocess.run([str(native_executable), '--self-test'], capture_output=True, text=True, timeout=45)
+    if self_test.returncode:
+        diagnostic = (self_test.stderr or self_test.stdout or 'Native runtime self-test returned no diagnostic').replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+        print('::error title=Native runtime self-test failed::' + diagnostic)
+        raise SystemExit(self_test.returncode)
+    print(self_test.stdout or 'Native runtime self-test passed')
     native_name = f'SQLNext-{version}-{platform.system().lower()}-native'
     if platform.system() == 'Darwin':
         native_archive = root / 'target' / (native_name + '.zip')

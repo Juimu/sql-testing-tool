@@ -16,7 +16,7 @@ SQLNext একটি JavaFX ডেস্কটপ অ্যাপ: অনুম�
 
 Artifact Extract করার পরে ভেতরের `SQLNext-0.2.0-windows-native.zip`-ও Extract করুন। সেখানে `SQLNext/SQLNext.exe` পাবেন; folder layout ভিন্ন হলে `SQLNext.exe` সার্চ করুন। **পুরো SQLNext ফোল্ডার একসঙ্গে রাখবেন**—শুধু `.exe` কপি করবেন না, কারণ পাশে runtime ও library থাকে। Bundled-runtime image হলে আলাদা Java/Maven লাগে না।
 
-Workflow এখনো চললে অপেক্ষা করুন; লাল চিহ্ন থাকলে package প্রস্তুত হয়েছে ধরে নেবেন না। এই cloud পরিবেশে Linux package পরীক্ষা করা হয়েছে; Windows/macOS-এর ফল সংশ্লিষ্ট workflow-তে দেখতে হবে। Package-গুলো code-signed installer নয়।
+Workflow এখনো চললে অপেক্ষা করুন; লাল চিহ্ন থাকলে package প্রস্তুত হয়েছে ধরে নেবেন না। এই cloud পরিবেশে Linux package পরীক্ষা করা হয়েছে; Windows/macOS-এর ফল সংশ্লিষ্ট workflow-তে দেখতে হবে। Package-গুলো code-signed installer নয়। macOS-এর positive-major নিয়মের জন্য ০.২.০ product-এর native bundle metadata ১.২.০ রাখা হয়; আসল software/archive version ০.২.০-ই থাকে। `PACKAGE-INFO.json`-এ দুটো version আলাদা দেখা যায়।
 
 ## ২. কী কী সুবিধা আছে?
 
