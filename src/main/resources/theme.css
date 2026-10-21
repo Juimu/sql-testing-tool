@@ -1,0 +1,15 @@
+.root { -fx-font-family: 'System'; -fx-font-size: 13px; -fx-base: #152030; -fx-background: #0c1320; -fx-control-inner-background: #121e2e; -fx-accent: #2dd4bf; -fx-focus-color: #2dd4bf; -fx-text-fill: #e5edf7; }
+.light { -fx-base: #e7edf5; -fx-background: #f5f7fb; -fx-control-inner-background: white; -fx-text-fill: #19283b; }
+.sidebar { -fx-background-color: derive(-fx-base,-12%); -fx-border-color: transparent derive(-fx-base,25%) transparent transparent; }
+.sidebar .button { -fx-max-width: infinity; -fx-alignment: center-left; -fx-padding: 12 14; }
+.brand { -fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #2dd4bf; }
+.heading { -fx-font-size: 28px; -fx-font-weight: bold; }
+.muted { -fx-opacity: .75; }
+.button { -fx-padding: 10 16; -fx-background-radius: 7; -fx-cursor: hand; }
+.text-field, .text-area, .combo-box { -fx-padding: 8; -fx-background-radius: 6; }
+.card { -fx-padding: 18; -fx-background-color: derive(-fx-base,5%); -fx-background-radius: 10; -fx-min-width: 150; }
+.card .label { -fx-font-size: 10px; }
+.card .number { -fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #2dd4bf; }
+.table-view { -fx-background-radius: 8; }
+.table-row-cell { -fx-cell-size: 36px; }
+.chart { -fx-padding: 8; }
